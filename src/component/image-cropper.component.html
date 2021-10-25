@@ -1,0 +1,25 @@
+<div (click)="imageUpload.click()" [className]="(imgCrop?.data?.url) ? 'uploader d-none' : 'uploader d-flex'">
+  <div class="text">
+    <i class="mdi mdi-upload" style="font-size: 2rem;"></i><br>Click to drop image here
+  </div>
+</div>
+
+<div [className]="(imgCrop?.data?.url) ? 'editor d-block' : 'editor d-none'">
+  <div #imageEditor></div>
+  <div class="toolbar">
+    <div class="float-left">
+      <button type="button" class="btn btn-primary btn-sm mr-1" (click)="imgCrop.rotate(90)">Rotate</button>
+      <input #imgZoom type="range" class="custom-range zoomer d-md-inline-block d-none" step="0.01" [min]="imgCrop?.elements.zoomer.min" [max]="imgCrop?.elements.zoomer.max" [ngModel]="imgCrop?.elements.zoomer.value" (input)="imgCrop.setZoom(imgZoom.value)">
+    </div>
+    <div class="float-right text-right">
+      <div class="dropdown d-inline-block">
+        <button (click)="showImgChange = !showImgChange" type="button" class="btn btn-primary btn-sm dropdown-toggle">Change image</button>
+        <div class="dropdown-menu" [ngClass]="{ 'show' : showImgChange }">
+          <button type="button" class="dropdown-item" (click)="showImgChange = false; imageUpload.click()">From device</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<input #imageUpload type="file" (change)="uploadImg($event)" class="d-none">

@@ -1,0 +1,62 @@
+/* Croppie */
+::ng-deep .cr-slider-wrap {
+    margin: 0px !important;
+}
+
+/* General styles */
+:host {
+    display: block;
+    position: relative;
+}
+.uploader {
+    cursor: pointer;
+    color: #696969;
+    min-height: 50vh;
+    border-radius: 10px;
+    position: relative;
+    background: #eef6f9;
+    border: 1px solid #cdd7e2;
+}  
+.uploader .text {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+} 
+.editor {
+    padding: 30px;
+    border-radius: 10px;
+    position: relative;
+    margin-bottom: 1rem;
+    background: #eef6f9;
+    border: 1px solid #cdd7e2;
+}
+.editor .toolbar {
+    left: 0;
+    right: 0;
+    padding: 6px;
+    bottom: -8px;
+    z-index: 100;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    border-radius: 10px;
+    width: fit-content;
+    background: #eef6f9;
+    border: 1px solid #cdd7e2;
+}
+.toolbar .zoomer {
+    width: 200px;
+    margin: 0px 15px;
+    vertical-align: middle;
+}
+
+@media(max-width: 992px) {
+    .editor {
+        padding: 0px;
+        margin-bottom: 3rem;
+        .toolbar {
+            bottom: -36px;
+            min-width: 70%;
+        }
+    }
+}
